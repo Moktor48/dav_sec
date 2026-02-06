@@ -6,11 +6,15 @@ import { db } from "~/server/db";
 
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
+  secret: env.BETTER_AUTH_SECRET,
   database: prismaAdapter(db, {
     provider: "postgresql", // or "sqlite" or "mysql"
   }),
   emailAndPassword: {
     enabled: true,
+  },
+  account: {
+    skipStateCookieCheck: true,
   },
   socialProviders: {
     google: {
