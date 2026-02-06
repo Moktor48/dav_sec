@@ -7,6 +7,10 @@ import { db } from "~/server/db";
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
   secret: env.BETTER_AUTH_SECRET,
+  trustedOrigins: [
+    "http://localhost:3000",
+    // Add your production domain here when deploying
+  ],
   database: prismaAdapter(db, {
     provider: "postgresql", // or "sqlite" or "mysql"
   }),
@@ -14,7 +18,7 @@ export const auth = betterAuth({
     enabled: true,
   },
   account: {
-    skipStateCookieCheck: true,
+    skipStateCookieCheck: false, // Re-enable state cookie check
   },
   socialProviders: {
     google: {
