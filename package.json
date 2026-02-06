@@ -31,6 +31,7 @@
     "better-auth": "^1.3",
     "client@latest": "link:prisma/client@latest",
     "daisyui": "^5.5.18",
+    "dotenv": "^17.2.4",
     "material-symbols": "^0.40.2",
     "next": "^15.2.3",
     "react": "^19.0.0",
