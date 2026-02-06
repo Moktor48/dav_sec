@@ -7,4 +7,4 @@ import {
   publicProcedure,
 } from "~/server/api/trpc";
 
-export const postRouter = createTRPCRouter({});
+export const putRouter = createTRPCRouter({});
